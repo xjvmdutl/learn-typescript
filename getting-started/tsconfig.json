@@ -1,0 +1,9 @@
+{
+  //타입스크립트를 js 파일로 어떻게 컴파일 할 지 정의하는 파일
+  "compilerOptions": {
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "noImplicitAny": true, //모든 타입에 Any라도 넣어야한다
+  },
+}
