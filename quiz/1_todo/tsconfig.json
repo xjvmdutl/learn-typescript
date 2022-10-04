@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
-    "noImplicitAny": false
+    "noImplicitAny": true //해당 부분을 true 설정시 TS 파일에 타입을 입력해야한다.
   },
   "include": ["./src/**/*"]
 }
