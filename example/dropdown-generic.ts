@@ -1,26 +1,59 @@
-const emails = [
-  { value: 'naver.com', selected: true },
-  { value: 'gmail.com', selected: false },
-  { value: 'hanmail.net', selected: false },
+/*
+interface Email {
+    value: string;
+    selected: boolean
+}
+
+interface ProductNumber {
+    value: number;
+    selected: boolean
+}
+
+interface TrueFalse {
+    value: boolean;
+    selected: boolean
+}
+ */
+
+interface DropdownItem<T> {
+    value: T;
+    selected: boolean;
+}
+
+const emails: DropdownItem<string>[] = [
+    {value: 'naver.com', selected: true},
+    {value: 'gmail.com', selected: false},
+    {value: 'hanmail.net', selected: false},
 ];
 
-const numberOfProducts = [
-  { value: 1, selected: true },
-  { value: 2, selected: false },
-  { value: 3, selected: false },
+const numberOfProducts: DropdownItem<number>[] = [
+    {value: 1, selected: true},
+    {value: 2, selected: false},
+    {value: 3, selected: false},
 ];
 
-function createDropdownItem(item) {
-  const option = document.createElement('option');
-  option.value = item.value.toString();
-  option.innerText = item.value.toString();
-  option.selected = item.selected;
-  return option;
+//function createDropdownItem(item: { value: number; selected: boolean }) { //numberOfProducts를 받을때는 value가 number이다
+function createDropdownItem<T>(item: DropdownItem<T>
+                               //{ value: string; selected: boolean }
+                               //| { value: number; selected: boolean }) {
+                               //Email| ProductNumber
+                               //DropdownItem<string> | DropdownItem<number>
+) {
+    const option = document.createElement('option');
+    option.value = item.value.toString();
+    option.innerText = item.value.toString();
+    option.selected = item.selected;
+    return option;
 }
 
 // NOTE: 이메일 드롭 다운 아이템 추가
 emails.forEach(function (email) {
-  const item = createDropdownItem(email);
-  const selectTag = document.querySelector('#email-dropdown');
-  selectTag.appendChild(item);
+    const item = createDropdownItem<string>(email);
+    const selectTag = document.querySelector('#email-dropdown');
+    selectTag.appendChild(item);
 });
+numberOfProducts.forEach(function (product) {
+    const item = createDropdownItem<number>(product)
+    const selectTag = document.querySelector('#product-dropdown')
+    selectTag.appendChild(item)
+})
