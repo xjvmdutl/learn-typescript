@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    //자바 스크립트에서 typescript 적용
+    "target": "ES5",
+    //타겟 버젼
+    "outDir": "./dist",
+    "moduleResolution": "Node",
+    "module": "ES2015",
+    //프로모션 인식
+    "lib": ["ES2015", "DOM", "DOM.Iterable"],
+    "noImplicitAny": true,
+    "typeRoots": ["./node_modules/@types", "./types"], //타입 선언 라이브러리를 제공하지 않을때 지정
+    "strict": true //스트릭트 속성 true
+  },
+  "include": ["./src/**/*"]
+  //어떤 대상을 기준으로 ts를 적용할 것이냐
+}
